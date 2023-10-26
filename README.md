@@ -5,8 +5,6 @@
 # description
 a simple wrapper for the sweet home 3d js viewer library
 
-
-
 # development
 ## upload new version
 simple run
