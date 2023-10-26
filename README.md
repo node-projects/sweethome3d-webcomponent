@@ -2,6 +2,8 @@
 
 [![Published on npm](https://img.shields.io/npm/v/@node-projects/sweethome3d-webcomponent.svg?logo=npm)](https://www.npmjs.com/package/@node-projects/sweethome3d-webcomponent)
 
+usable in web-component-designer: [https://node-projects.github.io/web-component-designer-demo/index.html](https://node-projects.github.io/web-component-designer-demo/index.html?npm=@node-projects/sweethome3d-webcomponent@latest&loadAllImports&html=<node-projects-sweet-home-3d url="https://node-projects.github.io/sweethome3d-webcomponent/default.sh3d" style="width:495px;height:325px;position:absolute;left:62px;top:47px;"></node-projects-sweet-home-3d>)
+
 # description
 a simple wrapper for the sweet home 3d js viewer library
 
