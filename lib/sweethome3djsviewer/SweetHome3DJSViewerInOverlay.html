@@ -1,0 +1,75 @@
+<!--
+   SweetHome3DJSViewerInOverlay.html  version 7.0
+   
+   Sweet Home 3D, Copyright (c) 2021 Emmanuel PUYBARET / eTeks <info@eteks.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+ 
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>View home with Sweet Home 3D JS Viewer</title>
+
+<!--  Copy the following scripts in your page header -->
+<script type="text/javascript" src="lib/big.min.js"></script>
+<script type="text/javascript" src="lib/gl-matrix-min.js"></script>
+<script type="text/javascript" src="lib/jszip.min.js"></script>
+<script type="text/javascript" src="lib/core.min.js"></script>
+<script type="text/javascript" src="lib/geom.min.js"></script>
+<script type="text/javascript" src="lib/stroke.min.js"></script>
+<script type="text/javascript" src="lib/batik-svgpathparser.min.js"></script>
+<script type="text/javascript" src="lib/jsXmlSaxParser.min.js"></script>
+<script type="text/javascript" src="lib/triangulator.min.js"></script>
+<script type="text/javascript" src="lib/viewmodel.min.js"></script>
+<script type="text/javascript" src="lib/viewhome.min.js"></script>
+
+<style type="text/css">
+/* The class of components handled by the viewer */
+.viewerComponent {
+}
+</style>
+</head>
+
+<body>
+<div>
+  <!-- Copy the following button in your page, updating the default.sh3d URL and parameters if necessary -->
+  <!-- Mouse and keyboard navigation explained at 
+       http://sweethome3d.cvs.sf.net/viewvc/sweethome3d/SweetHome3D/src/com/eteks/sweethome3d/viewcontroller/resources/help/en/editing3DView.html 
+       You may also switch between aerial view and virtual visit with the space bar -->
+  <!-- For browser compatibility, see http://caniuse.com/webgl -->
+  <button onclick='viewHomeInOverlay("default.sh3d",               
+              {roundsPerMinute:    1,                              /* Rotation speed of the animation launched once home is loaded in rounds per minute, no animation if missing */ 
+               widthByHeightRatio: 4/3,                            /* Size ratio of the displayed canvas */
+               navigationPanel: "none",                            /* Displayed navigation arrows, "none" or "default" for default one or an HTML string containing elements with data-simulated-key 
+                                                                      attribute set "UP", "DOWN", "LEFT", "RIGHT"... to replace the default navigation panel, "none" if missing */ 
+               aerialViewButtonText: "Aerial view",                /* Text displayed for aerial view radio button, no radio buttons if missing */ 
+               virtualVisitButtonText: "Virtual visit",            /* Text displayed for virtual visit radio button, no radio buttons if missing */
+            /* level: "Roof", */                                   /* Uncomment to select the displayed level, default level if missing */
+            /* selectableLevels: ["Ground floor", "Roof"], */      /* Uncomment to choose the list of displayed levels, no select component if empty array */
+            /* camera: "Exterior view", */                         /* Uncomment to select a camera, default camera if missing */
+            /* selectableCameras: ["Exterior view", "Kitchen"], */ /* Uncomment to choose the list of displayed cameras, no camera if missing */
+               activateCameraSwitchKey: true,                      /* Switch between top view / virtual visit with space bar if not false or missing */
+               viewerControlsAdditionalHTML: "",                   /* Additional HTML text appended to controls displayed below the canvas 3D, by default empty */
+               readingHomeText: "Reading",                         /* Comment displayed while reading home */
+               readingModelText: "Model",                          /* Comment displayed while reading models */
+               noWebGLSupportError: "No WebGL support"             /* Error message displayed if the browser do not support WebGL */
+              })'>View home</button>
+</div>
+
+<div style="position: absolute; bottom: 5px; text-align: center; width: 95%; z-index: -1">
+  <a href="http://www.sweethome3d.com">Sweet Home 3D</a> JS Viewer / Version 7.2 - Distributed under GNU General Public License
+</div>
+</body>
+</html>
