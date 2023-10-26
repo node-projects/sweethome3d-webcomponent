@@ -9,7 +9,7 @@
     "url": "git+https://github.com/node-projects/sweethome3d-webcomponent.git"
   },
   "author": "",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/node-projects/sweethome3d-webcomponent/issues"
   },
@@ -24,7 +24,6 @@
   "customElements": "custom-elements.json",
   "devDependencies": {
     "@web/dev-server": "^0.3.1",
-    "es-module-shims": "^1.8.0",
     "release-it": "^16.1.5",
     "typescript": "^5.2.2"
   },
