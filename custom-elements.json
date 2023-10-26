@@ -1,0 +1,102 @@
+{
+    "schemaVersion": "1.0.0",
+    "readme": "README.md",
+    "modules": [
+        {
+            "kind": "javascript-module",
+            "path": "dist/IMaskWebcomponent.js",
+            "declarations": [
+                {
+                    "kind": "class",
+                    "description": "A simple webcomponent wrapping imask lib",
+                    "name": "IMaskWebcomponent",
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "mask",
+                            "type":  {
+                                "text": "string"
+                            }
+                        },
+                        {
+                            "kind": "field",
+                            "name": "overwrite",
+                            "type":  {
+                                "text": "string"
+                            }
+                        },
+                        {
+                            "kind": "field",
+                            "name": "placeholderChar",
+                            "type":  {
+                                "text": "string"
+                            }
+                        },
+                        {
+                            "kind": "field",
+                            "name": "displayChar",
+                            "type":  {
+                                "text": "string"
+                            }
+                        },
+                        {
+                            "kind": "field",
+                            "name": "lazy",
+                            "type":  {
+                                "text": "boolean"
+                            }
+                        },
+                        {
+                            "kind": "field",
+                            "name": "value",
+                            "type":  {
+                                "text": "string"
+                            }
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "mask",
+                            "fieldName": "mask"
+                        },
+                        {
+                            "name": "overwrite",
+                            "fieldName": "overwrite"
+                        },
+                        {
+                            "name": "placeholder-char",
+                            "fieldName": "placeholderChar"
+                        },
+                        {
+                            "name": "display-char",
+                            "fieldName": "displayChar"
+                        },
+                        {
+                            "name": "lazy",
+                            "fieldName": "lazy"
+                        },
+                        {
+                            "name": "value",
+                            "fieldName": "value"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "HTMLElement"
+                    },
+                    "tagName": "node-projects-imask",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "custom-element-definition",
+                    "name": "node-projects-imask",
+                    "declaration": {
+                        "name": "IMaskWebcomponent",
+                        "module": "dist/IMaskWebcomponent.js"
+                    }
+                }
+            ]
+        }
+    ]
+}

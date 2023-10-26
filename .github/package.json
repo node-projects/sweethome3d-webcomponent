@@ -1,0 +1,36 @@
+{
+  "name": "@node-projects/tab.webcomponent",
+  "version": "0.2.3",
+  "description": "",
+  "type": "module",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/@node-projects/tab.webcomponent.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/@node-projects/tab.webcomponent/issues"
+  },
+  "homepage": "https://github.com/@node-projects/tab.webcomponent#readme",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "web-dev-server --node-resolve --open sample/index.html",
+    "build": "tsc",
+    "release": "release-it"
+  },
+  "main": "./dist/index.js",
+  "customElements": "custom-elements.json",
+  "webComponentDesigner": "web-component-designer.json",
+  "devDependencies": {
+    "@node-projects/web-component-designer": "^0.0.284",
+    "@web/dev-server": "^0.3.1",
+    "es-module-shims": "^1.8.0",
+    "release-it": "^16.1.5",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@node-projects/base-custom-webcomponent": "^0.17.2"
+  }
+}

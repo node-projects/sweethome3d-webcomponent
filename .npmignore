@@ -1,0 +1,7 @@
+src/
+sample/
+node_modules/
+tsconfig.json
+.github/
+*.sh3d
+*.html

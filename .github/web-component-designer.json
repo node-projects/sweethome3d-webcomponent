@@ -1,0 +1,14 @@
+    {
+        "schemaVersion": "1.0.0",
+        "services": {
+            "elementInteractionService": [
+                "./dist/designer/ElementInteractionService.js"
+            ],
+            "containerService": [
+                "./dist/designer/TabPlacementService.js"
+            ],
+            "attachedPropertyService": [
+                "./dist/designer/AttachedPropertiesService.js"
+            ]
+        }
+    }
