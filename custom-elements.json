@@ -4,96 +4,74 @@
     "modules": [
         {
             "kind": "javascript-module",
-            "path": "dist/IMaskWebcomponent.js",
+            "path": "dist/SweetHome3dWebcomponent.js",
             "declarations": [
                 {
                     "kind": "class",
-                    "description": "A simple webcomponent wrapping imask lib",
-                    "name": "IMaskWebcomponent",
+                    "description": "A simple webcomponent wrapping SweetHome3dJs",
+                    "name": "SweetHome3dWebcomponent",
                     "members": [
                         {
                             "kind": "field",
-                            "name": "mask",
+                            "name": "url",
                             "type":  {
                                 "text": "string"
                             }
                         },
                         {
                             "kind": "field",
-                            "name": "overwrite",
+                            "name": "level",
                             "type":  {
                                 "text": "string"
                             }
                         },
                         {
                             "kind": "field",
-                            "name": "placeholderChar",
+                            "name": "camera",
                             "type":  {
                                 "text": "string"
                             }
                         },
                         {
                             "kind": "field",
-                            "name": "displayChar",
+                            "name": "roundsPerMinute",
                             "type":  {
-                                "text": "string"
-                            }
-                        },
-                        {
-                            "kind": "field",
-                            "name": "lazy",
-                            "type":  {
-                                "text": "boolean"
-                            }
-                        },
-                        {
-                            "kind": "field",
-                            "name": "value",
-                            "type":  {
-                                "text": "string"
+                                "text": "number"
                             }
                         }
                     ],
                     "attributes": [
                         {
-                            "name": "mask",
-                            "fieldName": "mask"
+                            "name": "url",
+                            "fieldName": "url"
                         },
                         {
-                            "name": "overwrite",
-                            "fieldName": "overwrite"
+                            "name": "level",
+                            "fieldName": "level"
                         },
                         {
-                            "name": "placeholder-char",
-                            "fieldName": "placeholderChar"
+                            "name": "camera",
+                            "fieldName": "camera"
                         },
                         {
-                            "name": "display-char",
-                            "fieldName": "displayChar"
-                        },
-                        {
-                            "name": "lazy",
-                            "fieldName": "lazy"
-                        },
-                        {
-                            "name": "value",
-                            "fieldName": "value"
+                            "name": "rounds-per-minute",
+                            "fieldName": "roundsPerMinute"
                         }
                     ],
                     "superclass": {
-                        "name": "HTMLElement"
+                        "name": "BaseCustomWebComponentConstructorAppend"
                     },
-                    "tagName": "node-projects-imask",
+                    "tagName": "node-projects-sweet-home-3d",
                     "customElement": true
                 }
             ],
             "exports": [
                 {
                     "kind": "custom-element-definition",
-                    "name": "node-projects-imask",
+                    "name": "node-projects-sweet-home-3d",
                     "declaration": {
-                        "name": "IMaskWebcomponent",
-                        "module": "dist/IMaskWebcomponent.js"
+                        "name": "SweetHome3dWebcomponent",
+                        "module": "dist/SweetHome3dWebcomponent.js"
                     }
                 }
             ]

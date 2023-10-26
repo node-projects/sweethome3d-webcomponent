@@ -1,6 +1,6 @@
-import { BaseCustomWebComponentConstructorAppendLazyReady, LazyLoader, css, html } from '@node-projects/base-custom-webcomponent';
+import { BaseCustomWebComponentConstructorAppend, LazyLoader, css, html } from '@node-projects/base-custom-webcomponent';
 
-export class SweetHome3dWebcomponent extends BaseCustomWebComponentConstructorAppendLazyReady {
+export class SweetHome3dWebcomponent extends BaseCustomWebComponentConstructorAppend {
 
     public static override style = css`
     :host {
@@ -25,7 +25,8 @@ export class SweetHome3dWebcomponent extends BaseCustomWebComponentConstructorAp
     public static properties = {
         url: String,
         level: String,
-        camera: String
+        camera: String,
+        roundsPerMinute: Number
     }
 
     private _viewerCanvas: HTMLCanvasElement;
@@ -33,6 +34,7 @@ export class SweetHome3dWebcomponent extends BaseCustomWebComponentConstructorAp
     public url: string;
     public level: string;
     public camera: string;
+    public roundsPerMinute: number = 0;
 
     constructor() {
         super();
@@ -63,23 +65,17 @@ export class SweetHome3dWebcomponent extends BaseCustomWebComponentConstructorAp
         //await LazyLoader.LoadJavascripts(...importFiles);
 
         const options = {
-            roundsPerMinute: 0,                    // Rotation speed of the animation launched once home is loaded in rounds per minute, no animation if missing or equal to 0 
+            roundsPerMinute: this.roundsPerMinute,                    // Rotation speed of the animation launched once home is loaded in rounds per minute, no animation if missing or equal to 0 
             navigationPanel: "none",               // Displayed navigation arrows, "none" or "default" for default one or an HTML string containing elements with data-simulated-key 
-            // attribute set "UP", "DOWN", "LEFT", "RIGHT"... to replace the default navigation panel, "none" if missing 
-            // aerialViewButtonId: "aerialView",      // Id of the aerial view radio button, radio buttons hidden if missing  
-            // virtualVisitButtonId: "virtualVisit",  // Id of the aerial view radio button, radio buttons hidden if missing  
-            // levelsAndCamerasListId: "levelsAndCameras",          // Id of the levels and cameras select component, hidden if missing
             level: this.level,                                 // Uncomment to select the displayed level, default level if missing */
-            /* selectableLevels: ["Ground floor", "Roof"], */       // Uncomment to choose the list of displayed levels, no select component if empty array */
             camera: this.camera,                       // Uncomment to select a camera, default camera if missing */
-            /* selectableCameras: ["Exterior view", "Kitchen"], */  // Uncomment to choose the list of displayed cameras, no camera if missing */
             activateCameraSwitchKey: true                        // Switch between top view / virtual visit with space bar if not false or missing */
         };
 
         //@ts-ignore
         viewHome(this._viewerCanvas,    // Id of the canvas
             this.url,           // URL or relative URL of the home to display 
-            onerror,           // Callback called in case of error
+            err => console.error(err),           // Callback called in case of error
             (part, info, percentage) => { },     // Callback called while loading 
             options);
     }
