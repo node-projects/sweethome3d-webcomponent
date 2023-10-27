@@ -29,18 +29,21 @@ export class SweetHome3dWebcomponent extends BaseCustomWebComponentConstructorAp
         roundsPerMinute: Number
     }
 
-    private _viewerCanvas: HTMLCanvasElement;
 
     public url: string;
     public level: string;
     public camera: string;
     public roundsPerMinute: number = 0;
 
+    #viewerCanvas: HTMLCanvasElement;
+    #ready: boolean;
+    #viewer: any;
+
     constructor() {
         super();
         this._restoreCachedInititalValues()
 
-        this._viewerCanvas = this._getDomElement<HTMLCanvasElement>('viewerCanvas');
+        this.#viewerCanvas = this._getDomElement<HTMLCanvasElement>('viewerCanvas');
     }
 
     async ready() {
@@ -62,25 +65,40 @@ export class SweetHome3dWebcomponent extends BaseCustomWebComponentConstructorAp
         const importFiles = jsFiles.map(x => new URL(prefix + 'lib/' + x, import.meta.url).toString());
         for (const f of importFiles)
             await LazyLoader.LoadJavascript(f);
-        //await LazyLoader.LoadJavascripts(...importFiles);
 
-        const options = {
-            roundsPerMinute: this.roundsPerMinute,                    // Rotation speed of the animation launched once home is loaded in rounds per minute, no animation if missing or equal to 0 
-            navigationPanel: "none",               // Displayed navigation arrows, "none" or "default" for default one or an HTML string containing elements with data-simulated-key 
-            level: this.level,                                 // Uncomment to select the displayed level, default level if missing */
-            camera: this.camera,                       // Uncomment to select a camera, default camera if missing */
-            activateCameraSwitchKey: true                        // Switch between top view / virtual visit with space bar if not false or missing */
-        };
+        this.#ready = true;
+        this.createViewer();
 
-        //@ts-ignore
-        viewHome(this._viewerCanvas,    // Id of the canvas
-            this.url,           // URL or relative URL of the home to display 
-            err => console.error(err),           // Callback called in case of error
-            (part, info, percentage) => { },     // Callback called while loading 
-            options);
     }
 
+    private createViewer() {
+        if (this.#ready) {
+            const options = {
+                roundsPerMinute: this.roundsPerMinute,                    // Rotation speed of the animation launched once home is loaded in rounds per minute, no animation if missing or equal to 0 
+                navigationPanel: "none",               // Displayed navigation arrows, "none" or "default" for default one or an HTML string containing elements with data-simulated-key 
+                level: this.level,                                 // Uncomment to select the displayed level, default level if missing */
+                camera: this.camera,                       // Uncomment to select a camera, default camera if missing */
+                activateCameraSwitchKey: true                        // Switch between top view / virtual visit with space bar if not false or missing */
+            };
 
+            if (this.isConnected) {
+                //@ts-ignore
+                this.#viewer = viewHome(this.#viewerCanvas,    // Id of the canvas
+                    this.url,           // URL or relative URL of the home to display 
+                    err => console.error(err),           // Callback called in case of error
+                    (part, info, percentage) => { },     // Callback called while loading 
+                    options);
+            }
+        }
+    }
+
+    connectedCallback() {
+        this.createViewer();
+    }
+
+    disconnectedCaallback() {
+        this.#viewer?.dispose();
+    }
 }
 
 customElements.define(SweetHome3dWebcomponent.is, SweetHome3dWebcomponent);
