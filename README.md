@@ -15,3 +15,7 @@ simple run
 
 then you need to go to github and create a release from the uploaded tag.
 this will then create a npm package via github action.
+
+# copyright notice
+Sweet Home 3D JS Viewer, Copyright (c) 2005-2023 Emmanuel PUYBARET / eTeks. 
+Distributed under GNU General Public License  
